@@ -52,10 +52,10 @@ public class LLRTGUI extends javax.swing.JFrame {
 
         buttonGroup.add(jRadioButton1);
         jRadioButton1.setSelected(true);
-        jRadioButton1.setText("2kp^n-1");
+        jRadioButton1.setText("4kp^n-1");
 
         buttonGroup.add(jRadioButton2);
-        jRadioButton2.setText("2kp^n+1");
+        jRadioButton2.setText("4kp^n+1");
 
         kLabel.setText("k :");
 
@@ -185,9 +185,9 @@ public class LLRTGUI extends javax.swing.JFrame {
     pTextField.setText("");
     
     }
-    else if (k.multiply(BigInteger.valueOf(2)).compareTo(BigInteger.valueOf(2).pow(e))==1 || k.multiply(BigInteger.valueOf(2)).compareTo(BigInteger.valueOf(2).pow(e))==0 )
+    else if (k.multiply(BigInteger.valueOf(4)).compareTo(BigInteger.valueOf(2).pow(e))==1 || k.multiply(BigInteger.valueOf(2)).compareTo(BigInteger.valueOf(2).pow(e))==0 )
     {
-    JOptionPane.showMessageDialog(null, "Тhe value of 2k must be less than 2^exponent.");
+    JOptionPane.showMessageDialog(null, "Тhe value of 4k must be less than 2^exponent.");
     kTextField.setText("");
     }
      else if ( e<3 )
@@ -205,26 +205,26 @@ public class LLRTGUI extends javax.swing.JFrame {
          }
     
     
-    BigInteger f = k.multiply(BigInteger.valueOf(2)).multiply(p.pow(e)).add(sgn);
+    BigInteger f = k.multiply(BigInteger.valueOf(4)).multiply(p.pow(e)).add(sgn);
 	
 	Mersenne mersenne = new Mersenne();
 	
-	if (mersenne.primep(f,k.multiply(BigInteger.valueOf(2)).intValue(),p.intValue(),n.intValue(),sgn.intValue())) {
+	if (mersenne.primep(f,k.multiply(BigInteger.valueOf(4)).intValue(),p.intValue(),n.intValue(),sgn.intValue())) {
                             
 if(sgn.intValue()==-1){
-    resultLabel.setText(k.multiply(BigInteger.valueOf(2))+"*"+p+"^"+n+"-1 is prime");
+    resultLabel.setText(k.multiply(BigInteger.valueOf(4))+"*"+p+"^"+n+"-1 is prime");
 }
 else{
-    resultLabel.setText(k.multiply(BigInteger.valueOf(2))+"*"+p+"^"+n+"+1 is prime");
+    resultLabel.setText(k.multiply(BigInteger.valueOf(4))+"*"+p+"^"+n+"+1 is prime");
 }
     
     } else {
     
     if(sgn.intValue()==-1){
-    resultLabel.setText(k.multiply(BigInteger.valueOf(2))+"*"+p+"^"+n+"-1 is composite");
+    resultLabel.setText(k.multiply(BigInteger.valueOf(4))+"*"+p+"^"+n+"-1 is composite");
 }
 else{
-    resultLabel.setText(k.multiply(BigInteger.valueOf(2))+"*"+p+"^"+n+"+1 is composite");
+    resultLabel.setText(k.multiply(BigInteger.valueOf(4))+"*"+p+"^"+n+"+1 is composite");
 }
     
     }
@@ -324,7 +324,7 @@ else{
         {
           sv++;
         }
-        int c=(l*a*a)/2;
+        int c=(l*a*a)/4;
         BigInteger s;
         double t=m;
         int ub=(int)t-2;
@@ -333,7 +333,7 @@ else{
             s=poly(a,s).mod(g);
         }
 
-        return(s.equals(g.subtract(BigInteger.valueOf(2))));
+        return(s.equals(BigInteger.ZERO));
             
     }
     }
